@@ -4,6 +4,12 @@ require "<%= vagrantfile %>"
 
 Vagrant.configure("2") do |c|
   c.berkshelf.enabled = false if Vagrant.has_plugin?("vagrant-berkshelf")
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    c.cache.scope = <%= config[:cache_scope] %>
+    c.cache.auto_detect = <%= config[:cache_auto_detect] %>
+  end
+
   c.vm.box = "<%= config[:box] %>"
 
 <% if config[:box_url] %>

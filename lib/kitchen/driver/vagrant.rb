@@ -47,6 +47,10 @@ module Kitchen
 
       default_config :box_version, nil
 
+      default_config :cache_scope, :box
+
+      default_config :cache_auto_detect, true
+
       default_config :customize, {}
 
       default_config :gui, nil
